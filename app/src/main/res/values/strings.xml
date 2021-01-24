@@ -11,9 +11,13 @@
     <string name="eight">8</string>
     <string name="nine">9</string>
     <string name="zero">0</string>
-<!--    <string name="clear">\u2190</string>-->
     <string name="clear_u2190">←</string>
     <string name="toastPasswordSaved">Пин-код сохранён!</string>
     <string name="toastPasswordIncorrect">Введён неправильный пин-код!</string>
+
     <string name="settings">Настройки</string>
+    <string name="newPinTxt">Новый пин-код:</string>
+    <string name="fourDigits">(должен состоять из 4 цифр)</string>
+    <string name="save">Сохранить</string>
+    <string name="toastEnterPin">Введите пароль</string>
 </resources>
