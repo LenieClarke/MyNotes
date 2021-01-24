@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">MyNotes</string>
+    <string name="enterPinTxt">Введите пин:</string>
+    <string name="one">1</string>
+    <string name="two">2</string>
+    <string name="three">3</string>
+    <string name="four">4</string>
+    <string name="five">5</string>
+    <string name="six">6</string>
+    <string name="seven">7</string>
+    <string name="eight">8</string>
+    <string name="nine">9</string>
+    <string name="zero">0</string>
+<!--    <string name="clear">\u2190</string>-->
+    <string name="clear_u2190">←</string>
+    <string name="toastPasswordSaved">Пин-код сохранён!</string>
+    <string name="toastPasswordIncorrect">Введён неправильный пин-код!</string>
+    <string name="settings">Настройки</string>
+</resources>
