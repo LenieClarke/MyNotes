@@ -8,24 +8,22 @@
         android:id="@+id/title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="20sp"
+        android:textSize="17sp"
         android:textStyle="bold"
-        android:paddingStart="5dp"
-        android:paddingEnd="5dp" />
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp" />
 
     <TextView
         android:id="@+id/subtitle"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingStart="5dp"
-        android:paddingEnd="5dp" />
+        android:layout_height="27dp"
+        android:paddingBottom="5dp" />
 
     <TextView
         android:id="@+id/deadline"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textColor="@android:color/darker_gray"
-        android:paddingStart="5dp"
-        android:paddingEnd="5dp" />
+        android:paddingBottom="5dp" />
 
 </LinearLayout>

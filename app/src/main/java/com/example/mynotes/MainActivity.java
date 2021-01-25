@@ -34,16 +34,17 @@ public class MainActivity extends AppCompatActivity {
         list = findViewById(R.id.list);
         fab = findViewById(R.id.fab);
 
-        fab.setOnClickListener(view ->
-                adapter.addNote(new NoteData("Новое название заметки", "Новая заметка",
-                "01.01.2021")));
+        fab.setOnClickListener(v -> {
+            Intent intent = new Intent(MainActivity.this, AddingNewNoteActivity.class);
+            startActivity(intent);
+        });
 
         adapter = new NoteDataAdapter(this, notes);
         list.setAdapter(adapter);
 
         list.setOnItemLongClickListener((parent, view, position, id) -> {
             adapter.deleteNote(position);
-            Toast.makeText(MainActivity.this, "Заметка удалена", Toast.LENGTH_LONG).show();
+            Toast.makeText(MainActivity.this, R.string.toastNoteDeleted, Toast.LENGTH_LONG).show();
             return true;
         });
 

@@ -20,4 +20,12 @@
     <string name="fourDigits">(должен состоять из 4 цифр)</string>
     <string name="save">Сохранить</string>
     <string name="toastEnterPin">Введите пароль</string>
+
+    <string name="newNote">Новая заметка</string>
+    <string name="titleAdding">Заголовок заметки</string>
+    <string name="subtitleAdding">Тело заметки</string>
+    <string name="thereIsDeadline">Есть дедлайн</string>
+    <string name="deadline">Дедлайн</string>
+    <string name="toastNoteIsSaved">Заметка сохранена</string>
+    <string name="toastNoteDeleted">Заметка удалена</string>
 </resources>
