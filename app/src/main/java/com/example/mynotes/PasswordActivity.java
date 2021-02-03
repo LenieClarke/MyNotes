@@ -1,7 +1,6 @@
 package com.example.mynotes;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
@@ -17,12 +16,7 @@ public class PasswordActivity extends AppCompatActivity implements View.OnClickL
     private ImageView pinFourthImage;
 
     private String password = "";
-    private SharedPreferences firstPasswordSharedPreferences;
-    public static final String FIRST_PASSWORD_KEY = "firstPassword";
-    private SharedPreferences passwordSharedPreferences;
-    public static final String PASSWORD_KEY = "password";
     public boolean firstTime;
-    public static final String IS_FIRST = "first";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,18 +27,13 @@ public class PasswordActivity extends AppCompatActivity implements View.OnClickL
     }
 
     public void init() {
-        firstPasswordSharedPreferences = getSharedPreferences(FIRST_PASSWORD_KEY, MODE_PRIVATE);
-        firstTime = firstPasswordSharedPreferences.getBoolean(IS_FIRST, true);
+        firstTime = App.getKeystore().notHasPincode();
 
         if (firstTime) {
             Intent intent = new Intent(PasswordActivity.this, SettingActivity.class);
             startActivity(intent);
         } else {
-            passwordSharedPreferences = getSharedPreferences(PASSWORD_KEY, MODE_PRIVATE);
-            if (passwordSharedPreferences != null) {
-                SharedPreferences.Editor editor = firstPasswordSharedPreferences.edit();
-                editor.putBoolean(IS_FIRST, false).apply();
-            }
+            App.getKeystore().hasPincode();
         }
 
         initButtons();
@@ -173,11 +162,8 @@ public class PasswordActivity extends AppCompatActivity implements View.OnClickL
     }
 
     private void checkPassword() {
-        passwordSharedPreferences = getSharedPreferences(PASSWORD_KEY, MODE_PRIVATE);
-        String pincode = passwordSharedPreferences.getString(PASSWORD_KEY, "");
-        assert pincode != null;
         if (password.length() == 4) {
-            if (pincode.equals(password)) {
+            if (App.getKeystore().checkPincode(password)) {
                 Intent intent = new Intent(PasswordActivity.this, MainActivity.class);
                 startActivity(intent);
                 finish();

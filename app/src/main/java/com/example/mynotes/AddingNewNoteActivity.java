@@ -18,6 +18,7 @@ import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.Calendar;
+import java.util.Objects;
 
 import static com.example.mynotes.MainActivity.adapter;
 
@@ -43,6 +44,8 @@ public class AddingNewNoteActivity extends AppCompatActivity {
 
     @RequiresApi(api = Build.VERSION_CODES.Q)
     private void init() {
+        Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
+
         scrollView = findViewById(R.id.scrollable);
         scrollView.scrollToDescendant(deadlineEditText);
 
@@ -107,6 +110,9 @@ public class AddingNewNoteActivity extends AppCompatActivity {
             startActivity(intent);
             finish();
             return true;
+        }
+        if (id == android.R.id.home) {
+            finish();
         }
         return super.onOptionsItemSelected(item);
     }

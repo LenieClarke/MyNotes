@@ -28,4 +28,8 @@
     <string name="deadline">Дедлайн</string>
     <string name="toastNoteIsSaved">Заметка сохранена</string>
     <string name="toastNoteDeleted">Заметка удалена</string>
+    <string name="toastCancelDeletion">Отмена удаления</string>
+    <string name="deletingNote">Вы хотите удалить заметку?</string>
+    <string name="yes">Да</string>
+    <string name="not">Нет</string>
 </resources>

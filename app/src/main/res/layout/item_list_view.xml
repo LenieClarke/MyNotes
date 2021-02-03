@@ -8,21 +8,28 @@
         android:id="@+id/title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:maxLines="1"
+        android:ellipsize="end"
         android:textSize="17sp"
-        android:textStyle="bold"
+        style="@style/TextAppearance.MaterialComponents.Headline6"
         android:paddingTop="5dp"
         android:paddingBottom="5dp" />
 
     <TextView
         android:id="@+id/subtitle"
         android:layout_width="match_parent"
-        android:layout_height="27dp"
+        android:layout_height="wrap_content"
+        android:maxLines="3"
+        android:ellipsize="end"
+        android:textSize="17sp"
         android:paddingBottom="5dp" />
 
     <TextView
         android:id="@+id/deadline"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:textSize="13sp"
+        style="@style/TextAppearance.MaterialComponents.Overline"
         android:textColor="@android:color/darker_gray"
         android:paddingBottom="5dp" />
 

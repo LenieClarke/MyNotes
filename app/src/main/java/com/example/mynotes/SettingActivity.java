@@ -1,20 +1,18 @@
 package com.example.mynotes;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.method.HideReturnsTransformationMethod;
 import android.text.method.PasswordTransformationMethod;
+import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
-import static com.example.mynotes.PasswordActivity.FIRST_PASSWORD_KEY;
-import static com.example.mynotes.PasswordActivity.IS_FIRST;
-import static com.example.mynotes.PasswordActivity.PASSWORD_KEY;
+import androidx.appcompat.app.AppCompatActivity;
+
+import java.util.Objects;
 
 public class SettingActivity extends AppCompatActivity {
 
@@ -23,8 +21,6 @@ public class SettingActivity extends AppCompatActivity {
     private Button saveButton;
 
     private String newPassword;
-    private SharedPreferences pinSharedPreferences;
-    private SharedPreferences firstPinSharedPreferences;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +31,10 @@ public class SettingActivity extends AppCompatActivity {
     }
 
     private void init() {
+        if (!App.getKeystore().notHasPincode()) {
+            Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
+        }
+
         enterNewPin = findViewById(R.id.enterNewPin);
         visibilityButton = findViewById(R.id.visibilityButton);
         saveButton = findViewById(R.id.saveButton);
@@ -59,14 +59,7 @@ public class SettingActivity extends AppCompatActivity {
                 enterNewPin.setText("");
                 Toast.makeText(SettingActivity.this, R.string.toastEnterPin, Toast.LENGTH_LONG).show();
             } else {
-                pinSharedPreferences = getSharedPreferences(PASSWORD_KEY, MODE_PRIVATE);
-                SharedPreferences.Editor editor = pinSharedPreferences.edit();
-                editor.putString(PASSWORD_KEY, newPassword).apply();
-
-                firstPinSharedPreferences = getSharedPreferences(FIRST_PASSWORD_KEY, MODE_PRIVATE);
-                SharedPreferences.Editor firstEditor = firstPinSharedPreferences.edit();
-                firstEditor.putBoolean(IS_FIRST, false).apply();
-
+                App.getKeystore().saveNewPincode(newPassword);
                 Toast.makeText(SettingActivity.this, R.string.toastPasswordSaved,
                         Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(SettingActivity.this, MainActivity.class);
@@ -74,5 +67,14 @@ public class SettingActivity extends AppCompatActivity {
                 finish();
             }
         });
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        if (id == android.R.id.home) {
+            finish();
+        }
+        return super.onOptionsItemSelected(item);
     }
 }
