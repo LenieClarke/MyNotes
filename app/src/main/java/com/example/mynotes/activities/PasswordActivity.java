@@ -1,4 +1,4 @@
-package com.example.mynotes;
+package com.example.mynotes.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -7,6 +7,9 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.mynotes.App;
+import com.example.mynotes.R;
 
 public class PasswordActivity extends AppCompatActivity implements View.OnClickListener {
 

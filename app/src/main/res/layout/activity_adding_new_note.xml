@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AddingNewNoteActivity">
+    tools:context=".activities.AddingNewNoteActivity">
 
     <ScrollView
         android:id="@+id/scrollable"
@@ -44,15 +44,18 @@
 
             <LinearLayout
                 android:id="@+id/linearLayout"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:orientation="horizontal">
+                android:paddingEnd="60dp"
+                android:orientation="horizontal"
+                tools:ignore="RtlSymmetry">
 
                 <EditText
                     android:id="@+id/deadlineEditText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_weight="1"
                     android:ems="10"
                     android:hint="@string/deadline"
                     android:inputType="date" />
@@ -62,7 +65,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:onClick="setDate"
+                    android:onClick="setTime"
                     app:srcCompat="@drawable/ic_baseline_calendar_24" />
 
             </LinearLayout>

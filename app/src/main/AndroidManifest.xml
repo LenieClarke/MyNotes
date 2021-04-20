@@ -11,13 +11,13 @@
         android:supportsRtl="true"
         android:theme="@style/MyTheme.MyNotes">
         <activity
-            android:name=".AddingNewNoteActivity"
+            android:name=".activities.AddingNewNoteActivity"
             android:label="@string/newNote" />
         <activity
-            android:name=".SettingActivity"
+            android:name=".activities.SettingActivity"
             android:label="@string/settings" />
-        <activity android:name=".MainActivity" />
-        <activity android:name=".PasswordActivity">
+        <activity android:name=".activities.MainActivity" />
+        <activity android:name=".activities.PasswordActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

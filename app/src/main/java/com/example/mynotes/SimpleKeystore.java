@@ -15,7 +15,7 @@ public class SimpleKeystore implements Keystore {
     public static final String PASSWORD_KEY = "password";
     public static final String IS_FIRST = "first";
 
-    SimpleKeystore(Context context) {
+    public SimpleKeystore(Context context) {
         this.context = context;
     }
 
