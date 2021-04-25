@@ -121,6 +121,8 @@ public class AddingNewNoteActivity extends AppCompatActivity {
     private void saveNote() {
         Note note = new Note(titleAdding.getText().toString(), subtitleAdding.getText().toString(),
                 deadlineCheckBox.isChecked(), deadlineDate);
+        long update = System.currentTimeMillis();
+        note.setUpdate(update);
         if (savingUpdate) {
             note.setId(idUpdate);
             App.getNoteRepository().update(note);
