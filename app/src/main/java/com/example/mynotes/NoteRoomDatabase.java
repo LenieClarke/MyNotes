@@ -23,7 +23,7 @@ public abstract class NoteRoomDatabase extends RoomDatabase {
             synchronized (NoteRoomDatabase.class) {
                 if (database == null) {
                     database = Room.databaseBuilder(context.getApplicationContext(),
-                            NoteRoomDatabase.class, "database_notes1").build();
+                            NoteRoomDatabase.class, "database_notes2").build();
                 }
             }
         }

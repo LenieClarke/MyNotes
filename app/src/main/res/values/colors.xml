@@ -8,6 +8,8 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="darkerGray">#AAAAAA</color>
+    <color name="red">#F44336</color>
+    <color name="yellow">#FFC107</color>
 
     <color name="maroon">#8F0434</color>
     <color name="darkMaroon">#670D2C</color>

@@ -33,7 +33,7 @@
                 android:maxLines="3"
                 android:ellipsize="end"
                 android:textSize="17sp"
-                android:paddingBottom="5dp" />
+                android:paddingBottom="8dp" />
 
             <TextView
                 android:id="@+id/deadlineString"
@@ -41,6 +41,7 @@
                 android:layout_height="wrap_content"
                 android:textSize="13sp"
                 style="@style/TextAppearance.MaterialComponents.Overline"
+                android:textStyle="bold"
                 android:textColor="@color/darkerGray"
                 android:paddingBottom="5dp" />
 

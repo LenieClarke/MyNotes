@@ -16,7 +16,7 @@ public interface NoteDao {
     @Query("SELECT * FROM notes")
     List<Note> getAll();
 
-    @Query("SELECT * FROM notes")
+    @Query("SELECT * FROM notes ORDER BY deadline = 0 ASC, deadline, id DESC")
     LiveData<List<Note>> getAllLiveData();
 
     @Query("SELECT * FROM notes WHERE id = :id")
