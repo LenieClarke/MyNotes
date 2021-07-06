@@ -1,7 +1,9 @@
 package com.example.mynotes.activities;
 
+import android.annotation.SuppressLint;
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
+import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.text.format.DateUtils;
@@ -17,7 +19,6 @@ import android.widget.Toast;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.mynotes.App;
 import com.example.mynotes.Note;
 import com.example.mynotes.R;
 
@@ -30,6 +31,7 @@ import static com.example.mynotes.NoteAdapter.EXTRA_ID;
 import static com.example.mynotes.NoteAdapter.EXTRA_SUBTITLE;
 import static com.example.mynotes.NoteAdapter.EXTRA_TITLE;
 import static com.example.mynotes.NoteAdapter.savingUpdate;
+import static com.example.mynotes.activities.MainActivity.viewModel;
 
 public class AddingNewNoteActivity extends AppCompatActivity {
 
@@ -56,6 +58,7 @@ public class AddingNewNoteActivity extends AppCompatActivity {
 
     @RequiresApi(api = Build.VERSION_CODES.Q)
     private void init() {
+        Objects.requireNonNull(getSupportActionBar()).setTitle(R.string.newNote);
         Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
 
         scrollView = findViewById(R.id.scrollable);
@@ -125,10 +128,10 @@ public class AddingNewNoteActivity extends AppCompatActivity {
         note.setUpdate(update);
         if (savingUpdate) {
             note.setId(idUpdate);
-            App.getNoteRepository().update(note);
+            viewModel.update(note);
             savingUpdate = false;
         } else {
-            App.getNoteRepository().insert(note);
+            viewModel.insert(note);
         }
     }
 
@@ -158,6 +161,34 @@ public class AddingNewNoteActivity extends AppCompatActivity {
         }
     }
 
+    @SuppressLint("QueryPermissionsNeeded")
+    private void shareNote() {
+        final String mailTitle = titleAdding.getText().toString();
+        final String mailSubtitle = subtitleAdding.getText().toString();
+        final String mailDeadline = deadlineEditText.getText().toString();
+
+        StringBuilder stringBuilder = new StringBuilder();
+        if (!mailTitle.equals("")) {
+            stringBuilder.append(getString(R.string.title)).append("\n").append(mailTitle).append("\n\n");
+        }
+        if (!mailSubtitle.equals("")) {
+            stringBuilder.append(getString(R.string.content)).append("\n").append(mailSubtitle).append("\n\n");
+        }
+        if (!mailDeadline.equals("")) {
+            stringBuilder.append(getString(R.string.deadline)).append(": ").append(mailDeadline);
+        }
+
+        Intent intent = new Intent(Intent.ACTION_SEND);
+        intent.setType("text/plain");
+        intent.putExtra(Intent.EXTRA_TEXT, stringBuilder.toString());
+        if (intent.resolveActivity(getPackageManager()) == null) {
+            Toast.makeText(this, getString(R.string.toastNoApp), Toast.LENGTH_SHORT).show();
+            return;
+        }
+        Intent chosenIntent = Intent.createChooser(intent, getString(R.string.toastChooseApp));
+        startActivity(chosenIntent);
+    }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -178,6 +209,10 @@ public class AddingNewNoteActivity extends AppCompatActivity {
                         Toast.LENGTH_LONG).show();
             }
             finish();
+            return true;
+        }
+        if (id == R.id.action_share) {
+            shareNote();
             return true;
         }
         if (id == android.R.id.home) {

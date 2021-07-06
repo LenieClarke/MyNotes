@@ -9,13 +9,10 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_notes_round"
         android:supportsRtl="true"
-        android:theme="@style/MyTheme.MyNotes">
-        <activity
-            android:name=".activities.AddingNewNoteActivity"
-            android:label="@string/newNote" />
-        <activity
-            android:name=".activities.SettingActivity"
-            android:label="@string/settings" />
+        android:theme="@style/MyTheme.Maroon">
+        <activity android:name=".activities.NewPasswordActivity" />
+        <activity android:name=".activities.AddingNewNoteActivity" />
+        <activity android:name=".activities.SettingActivity"/>
         <activity android:name=".activities.MainActivity" />
         <activity android:name=".activities.PasswordActivity">
             <intent-filter>

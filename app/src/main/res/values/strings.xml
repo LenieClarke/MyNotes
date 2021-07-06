@@ -1,38 +1,45 @@
 <resources>
-    <string name="app_name">MyNotes</string>
-    <string name="enterPinTxt">Введите пин:</string>
-    <string name="one">1</string>
-    <string name="two">2</string>
-    <string name="three">3</string>
-    <string name="four">4</string>
-    <string name="five">5</string>
-    <string name="six">6</string>
-    <string name="seven">7</string>
-    <string name="eight">8</string>
-    <string name="nine">9</string>
-    <string name="zero">0</string>
-    <string name="clear_u2190">←</string>
-    <string name="toastPasswordSaved">Пин-код сохранён!</string>
-    <string name="toastPasswordIncorrect">Введён неправильный пин-код!</string>
+    <string name="app_name" translatable="false">MyNotes</string>
+    <string name="enterPinTxt">Enter your pin:</string>
+    <string name="one" translatable="false">1</string>
+    <string name="two" translatable="false">2</string>
+    <string name="three" translatable="false">3</string>
+    <string name="four" translatable="false">4</string>
+    <string name="five" translatable="false">5</string>
+    <string name="six" translatable="false">6</string>
+    <string name="seven" translatable="false">7</string>
+    <string name="eight" translatable="false">8</string>
+    <string name="nine" translatable="false">9</string>
+    <string name="zero" translatable="false">0</string>
+    <string name="clear_u2190" translatable="false">←</string>
+    <string name="toastPasswordSaved">Pin-code saved!</string>
+    <string name="toastPasswordIncorrect">Incorrect pin-code!</string>
 
-    <string name="settings">Настройки</string>
-    <string name="newPinTxt">Новый пин-код:</string>
-    <string name="fourDigits">(должен состоять из 4 цифр)</string>
-    <string name="save">Сохранить</string>
-    <string name="toastEnterPin">Введите пароль</string>
+    <string name="newNote">New note</string>
+    <string name="titleAdding">Note title</string>
+    <string name="subtitleAdding">Note body</string>
+    <string name="thereIsDeadline">There is a deadline</string>
+    <string name="deadline">Deadline</string>
+    <string name="toastNoteIsSaved">Note saved</string>
+    <string name="toastNoteIsEmpty">Note is empty, enter the text</string>
+    <string name="toastNoteDeleted">Note deleted</string>
+    <string name="toastCancelDeletion">Cancel deletion</string>
+    <string name="deletingNote">Do you want to delete the note:</string>
+    <string name="yes">Yes</string>
+    <string name="not">Not</string>
+    <string name="editingNote">Editing the note</string>
+    <string name="addNote">Add a note</string>
+    <string name="share">Share</string>
+    <string name="title">Title:</string>
+    <string name="content">Content:</string>
+    <string name="toastNoApp">No app to send</string>
+    <string name="toastChooseApp">Choose app to send</string>
 
-    <string name="newNote">Новая заметка</string>
-    <string name="titleAdding">Заголовок заметки</string>
-    <string name="subtitleAdding">Тело заметки</string>
-    <string name="thereIsDeadline">Есть дедлайн</string>
-    <string name="deadline">Дедлайн</string>
-    <string name="toastNoteIsSaved">Заметка сохранена</string>
-    <string name="toastNoteIsEmpty">Заметка пуста, введите текст</string>
-    <string name="toastNoteDeleted">Заметка удалена</string>
-    <string name="toastCancelDeletion">Отмена удаления</string>
-    <string name="deletingNote">Вы хотите удалить заметку:</string>
-    <string name="yes">Да</string>
-    <string name="not">Нет</string>
-    <string name="editingNote">Редактирование заметки</string>
-    <string name="addNote">Добавить заметку</string>
+    <string name="settings">Settings</string>
+    <string name="safety">Safety</string>
+    <string name="changePassword">Change password</string>
+    <string name="newPinTxt">New pin-code:</string>
+    <string name="fourDigits">(must consist of 4 digits)</string>
+    <string name="save">Save</string>
+    <string name="toastEnterPin">Enter pin-code</string>
 </resources>

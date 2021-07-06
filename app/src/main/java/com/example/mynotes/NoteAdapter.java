@@ -22,6 +22,8 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
+import static com.example.mynotes.activities.MainActivity.viewModel;
+
 public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.NoteViewHolder> {
 
     private List<Note> noteList;
@@ -137,7 +139,7 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.NoteViewHolder
                         .setMessage(title + "  ?");
 
                 builder.setPositiveButton(R.string.yes, (dialog, i) -> {
-                    App.getNoteRepository().delete(noteList.get(getAdapterPosition()));
+                    viewModel.delete(noteList.get(getAdapterPosition()));
                     Toast.makeText(v.getContext(), R.string.toastNoteDeleted, Toast.LENGTH_LONG).show();
                 });
 

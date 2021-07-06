@@ -13,5 +13,7 @@
 
     <color name="maroon">#8F0434</color>
     <color name="darkMaroon">#670D2C</color>
+    <color name="maroonNight">#4A0920</color>
+    <color name="darkMaroonNight">#3C081A</color>
     <color name="orangeAccent">#FD973F</color>
 </resources>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="enterPinTxt">Введите пин:</string>
+    <string name="toastPasswordSaved">Пин-код сохранён!</string>
+    <string name="toastPasswordIncorrect">Введён неправильный пин-код!</string>
+
+    <string name="newNote">Новая заметка</string>
+    <string name="titleAdding">Заголовок заметки</string>
+    <string name="subtitleAdding">Тело заметки</string>
+    <string name="thereIsDeadline">Есть дедлайн</string>
+    <string name="deadline">Дедлайн</string>
+    <string name="toastNoteIsSaved">Заметка сохранена</string>
+    <string name="toastNoteIsEmpty">Заметка пуста, введите текст</string>
+    <string name="toastNoteDeleted">Заметка удалена</string>
+    <string name="toastCancelDeletion">Отмена удаления</string>
+    <string name="deletingNote">Вы хотите удалить заметку:</string>
+    <string name="yes">Да</string>
+    <string name="not">Нет</string>
+    <string name="editingNote">Редактирование</string>
+    <string name="addNote">Добавить заметку</string>
+    <string name="share">Поделиться</string>
+    <string name="title">Заголовок:</string>
+    <string name="content">Содержание:</string>
+    <string name="toastNoApp">Нет приложения для отправки</string>
+    <string name="toastChooseApp">Выберите приложение для отправки</string>
+
+    <string name="settings">Настройки</string>
+    <string name="safety">Безопасность</string>
+    <string name="changePassword">Изменить пароль</string>
+    <string name="newPinTxt">Новый пин-код:</string>
+    <string name="fourDigits">(должен состоять из 4 цифр)</string>
+    <string name="save">Сохранить</string>
+    <string name="toastEnterPin">Введите пароль</string>
+</resources>

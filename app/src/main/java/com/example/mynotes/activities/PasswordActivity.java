@@ -33,7 +33,7 @@ public class PasswordActivity extends AppCompatActivity implements View.OnClickL
         firstTime = App.getKeystore().notHasPincode();
 
         if (firstTime) {
-            Intent intent = new Intent(PasswordActivity.this, SettingActivity.class);
+            Intent intent = new Intent(PasswordActivity.this, NewPasswordActivity.class);
             startActivity(intent);
         } else {
             App.getKeystore().hasPincode();

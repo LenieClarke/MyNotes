@@ -21,4 +21,16 @@ public class NoteViewModel extends AndroidViewModel {
     public LiveData<List<Note>> getListNotes() {
         return listNotes;
     }
+
+    public void insert(Note note) {
+        App.getNoteRepository().insert(note);
+    }
+
+    public void update(Note note) {
+        App.getNoteRepository().update(note);
+    }
+
+    public void delete(Note note) {
+        App.getNoteRepository().delete(note);
+    }
 }

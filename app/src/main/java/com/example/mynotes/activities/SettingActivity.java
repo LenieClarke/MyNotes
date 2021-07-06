@@ -1,29 +1,22 @@
 package com.example.mynotes.activities;
 
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
-import android.text.method.HideReturnsTransformationMethod;
-import android.text.method.PasswordTransformationMethod;
 import android.view.MenuItem;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.ImageButton;
-import android.widget.Toast;
+import android.widget.TextView;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.mynotes.App;
 import com.example.mynotes.R;
 
 import java.util.Objects;
 
+@RequiresApi(api = Build.VERSION_CODES.M)
 public class SettingActivity extends AppCompatActivity {
 
-    private EditText enterNewPin;
-    private ImageButton visibilityButton;
-    private Button saveButton;
-
-    private String newPassword;
+    private TextView changePasswordText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,50 +27,36 @@ public class SettingActivity extends AppCompatActivity {
     }
 
     private void init() {
-        if (!App.getKeystore().notHasPincode()) {
-            Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
-        }
+        Objects.requireNonNull(getSupportActionBar()).setTitle(R.string.settings);
+        Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
 
-        enterNewPin = findViewById(R.id.enterNewPin);
-        visibilityButton = findViewById(R.id.visibilityButton);
-        saveButton = findViewById(R.id.saveButton);
+        changePasswordText = findViewById(R.id.changePasswordText);
 
-        final boolean[] changeVisibility = {true};
-
-        visibilityButton.setOnClickListener(v -> {
-            if (changeVisibility[0]) {
-                visibilityButton.setImageResource(R.drawable.ic_baseline_visibility_24);
-                enterNewPin.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
-                changeVisibility[0] = false;
-            } else {
-                visibilityButton.setImageResource(R.drawable.ic_baseline_visibility_off_24);
-                enterNewPin.setTransformationMethod(PasswordTransformationMethod.getInstance());
-                changeVisibility[0] = true;
-            }
+        changePasswordText.setOnClickListener(v -> {
+            Intent intent = new Intent(SettingActivity.this, NewPasswordActivity.class);
+            startActivity(intent);
+            finish();
         });
+    }
 
-        saveButton.setOnClickListener(v -> {
-            newPassword = enterNewPin.getText().toString();
-            if (newPassword.length() < 4) {
-                enterNewPin.setText("");
-                Toast.makeText(SettingActivity.this, R.string.toastEnterPin, Toast.LENGTH_LONG).show();
-            } else {
-                App.getKeystore().saveNewPincode(newPassword);
-                Toast.makeText(SettingActivity.this, R.string.toastPasswordSaved,
-                        Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(SettingActivity.this, MainActivity.class);
-                startActivity(intent);
-                finish();
-            }
-        });
+    private void backHome() {
+        Intent intent = new Intent(SettingActivity.this, MainActivity.class);
+        startActivity(intent);
+        finish();
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
         if (id == android.R.id.home) {
-            finish();
+            backHome();
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        backHome();
     }
 }

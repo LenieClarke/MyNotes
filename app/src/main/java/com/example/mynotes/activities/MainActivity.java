@@ -21,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
     private FloatingActionButton fab;
 
     private NoteAdapter adapter;
-    private NoteViewModel viewModel;
+    public static NoteViewModel viewModel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,6 +62,7 @@ public class MainActivity extends AppCompatActivity {
         if (id == R.id.action_settings) {
             Intent intent = new Intent(MainActivity.this, SettingActivity.class);
             startActivity(intent);
+            finish();
             return true;
         }
         return super.onOptionsItemSelected(item);

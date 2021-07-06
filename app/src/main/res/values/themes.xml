@@ -14,7 +14,9 @@
         <!-- Customize your theme here. -->
     </style>
 
-    <style name="MyTheme.MyNotes" parent="Theme.AppCompat.Light.DarkActionBar">
+    <style name="MyTheme" parent="Theme.AppCompat.DayNight.DarkActionBar" />
+
+    <style name="MyTheme.Maroon" parent="MyTheme">
         <item name="colorPrimary">@color/maroon</item>
         <item name="colorPrimaryDark">@color/darkMaroon</item>
         <item name="colorAccent">@color/orangeAccent</item>

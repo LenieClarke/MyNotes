@@ -5,6 +5,12 @@
     tools:context=".activities.AddingNewNoteActivity">
 
     <item
+        android:id="@+id/action_share"
+        android:icon="@drawable/ic_baseline_share_24"
+        android:title="@string/share"
+        app:showAsAction="ifRoom" />
+
+    <item
         android:id="@+id/action_save"
         android:icon="@drawable/ic_baseline_save_24"
         android:title="@string/save"
